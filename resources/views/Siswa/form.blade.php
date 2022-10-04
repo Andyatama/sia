@@ -9,10 +9,47 @@ data-backdrop="static" data-keyboard="false">
                 </button>
             </div>
             <div class="modal-body">
-                <p>One fine body…</p>
-            </div>
-            <div class="modal-footer justify-content-between">
-                <button type="button" class="btn btn-primary">Save changes</button>
+                
+                <form action="" method="post">
+                    @csrf
+                    @method('PUT')
+
+                    <div class="form-group">
+                        <label for="nama">Nama</label>
+                        <input type="text" class="form-control" name="nama" id="nama">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="jenis_kelamin">Jenis Kelamin</label>
+                        <select name="jenis_kelamin" id="jenis_kelamin" id="jenis_kelamin" class="form-control">
+                            <option value="Perempuan">Perempuan</option>
+                            <option value="Laki-Laki">Laki-Laki</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mapel_id">Mapel</label>
+                        <select type="text" class="form-control" name="mapel_id" id="mapel_id">
+                        @foreach ($mapel as $item)
+                            <option value="{{$item->id}}">{{$item->nama}}</option>
+                        @endforeach
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="kelas_id">Kelas</label>
+                        <select type="text" class="form-control" name="kelas_id" id="kelas_id">
+                        @foreach ($kelas as $item)
+                            <option value="{{$item->id}}">{{$item->nama}}</option>
+                        @endforeach
+                        </select>
+                    </div>
+                    
+                    <div class="modal-footer justify-content-between">
+                        <button type="submit" class="btn btn-success btn-flat">Simpan</button>
+                    </div>
+                </form>
+
             </div>
         </div>
 
