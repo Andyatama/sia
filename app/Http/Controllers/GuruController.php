@@ -28,7 +28,7 @@ class GuruController extends Controller
         ->of($guru)
         ->addIndexColumn()
         ->addColumn('mapel_id', function($guru){
-            return $guru->mapel->nama;
+            return !empty($guru->mapel->nama) ? $guru->mapel->nama : 'BELUM DI ISI';
         })
         ->addColumn('aksi', function($guru){
             return
