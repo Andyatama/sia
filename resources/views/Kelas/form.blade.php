@@ -9,10 +9,21 @@ data-backdrop="static" data-keyboard="false">
                 </button>
             </div>
             <div class="modal-body">
-                <p>One fine body…</p>
-            </div>
-            <div class="modal-footer justify-content-between">
-                <button type="button" class="btn btn-primary">Save changes</button>
+                
+                <form action="" method="post">
+                    @csrf
+                    @method('PUT')
+
+                    <div class="form-group">
+                        <label for="nama">Nama Kelas</label>
+                        <input type="text" class="form-control" name="nama" id="nama">
+                    </div>
+                    
+                    <div class="modal-footer justify-content-between">
+                        <button type="submit" class="btn btn-success btn-flat">Simpan</button>
+                    </div>
+                </form>
+
             </div>
         </div>
 
