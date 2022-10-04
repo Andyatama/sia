@@ -71,6 +71,7 @@ class SiswaController extends Controller
         $validator = Validator::make($request->all(),[
             'nama' => 'required',
             'jenis_kelamin' => 'required',
+            'alamat' => 'required',
             'mapel_id' => 'required',
             'kelas_id' => 'required'
         ]);
@@ -78,6 +79,7 @@ class SiswaController extends Controller
        $siswa = Siswa::create([
         'nama' => $request->nama,
         'jenis_kelamin' => $request->jenis_kelamin,
+        'alamat' => $request->alamat,
         'mapel_id' => $request->mapel_id,
         'kelas_id' => $request->mapel_id
        ]);
@@ -124,6 +126,7 @@ class SiswaController extends Controller
         $siswa = Siswa::find($id);
         $siswa->nama = $request->nama;
         $siswa->jenis_kelamin = $request->jenis_kelamin;
+        $siswa->alamat = $request->alamat;
         $siswa->mapel_id = $request->mapel_id;
         $siswa->kelas_id = $request->kelas_id;
         $siswa->update();

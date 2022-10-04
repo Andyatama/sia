@@ -39,6 +39,7 @@ Siswa
                     <th>No.</th>
                     <th>Nama</th>
                     <th>Jenis Kelamin</th>
+                    <th>Alamat</th>
                     <th>Mapel</th>
                     <th>Kelas</th>
                     <th>Aksi</th>
@@ -66,6 +67,7 @@ Siswa
                 {data: 'DT_RowIndex'},
                 {data: 'nama'},
                 {data: 'jenis_kelamin'},
+                {data: 'alamat'},
                 {data: 'mapel_id'},
                 {data: 'kelas_id'},
                 {data: 'aksi'}
@@ -100,7 +102,7 @@ Siswa
 
     function addForm(url) {
         $('#modalForm').modal('show');
-        $('#modalForm .modal-title').text('Tambah Data Guru');
+        $('#modalForm .modal-title').text('Tambah Data Siswa');
 
         $('#modalForm form')[0].reset();
         $('#modalForm form').attr('action', url);
@@ -109,7 +111,7 @@ Siswa
 
     function editData(url) {
         $('#modalForm').modal('show');
-        $('#modalForm .modal-title').text('Edit Data Guru');
+        $('#modalForm .modal-title').text('Edit Data Siswa');
 
         $('#modalForm form')[0].reset();
         $('#modalForm form').attr('action', url);

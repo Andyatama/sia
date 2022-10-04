@@ -26,6 +26,19 @@ data-backdrop="static" data-keyboard="false">
                             <option value="Laki-Laki">Laki-Laki</option>
                         </select>
                     </div>
+
+                    <div class="col-lg-12" >
+                        <div class="form-group">
+                            <label for="alamat">Alamat</label>
+                            <textarea name="alamat" class="form-control @error('alamat') is-invalid @enderror" placeholder="" id="alamat"></textarea>
+                            
+                            @error('alamat')
+                            <div class="text-danger">
+                                {{$message}}
+                            </div>
+                            @enderror
+                        </div>
+                    </div>
                     
                     <div class="form-group">
                         <label for="mapel_id">Mapel</label>
