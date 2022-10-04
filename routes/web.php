@@ -5,7 +5,8 @@ use App\Http\Controllers\{
     GuruController,
     KelasController,
     MapelController,
-    SiswaController
+    SiswaController,
+    DashboardController
 };
 
 /*
