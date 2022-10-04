@@ -23,6 +23,9 @@ Route::get('/', function () {
     return view('layout.app');
 });
 
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+
+
 Route::get('/guru/data', [GuruController::class, 'data'])->name('guru.data');
 Route::resource('/guru', GuruController::class);
 
