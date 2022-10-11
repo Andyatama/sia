@@ -32,7 +32,7 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
 
-Route::group(['middleware'=>'auth'], function(){
+Route::group(['middleware'=>['auth', 'checkRole:admin']], function(){
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
@@ -49,4 +49,8 @@ Route::group(['middleware'=>'auth'], function(){
     Route::get('/mapel/data', [MapelController::class, 'data'])->name('mapel.data');
     Route::resource('/mapel', MapelController::class);
 
+});
+
+Route::group(['middleware'=>['auth', 'checkRole:admin,siswa']], function(){
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 });
