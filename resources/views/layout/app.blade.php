@@ -91,7 +91,7 @@
 
     </div>
 
-
+    {{-- AdminLte --}}
     <script src="{{ asset('asset//js/jquery.min.js')}}"></script>
     <script src="{{ asset('asset/js/bootstrap.bundle.min.js')}}"></script>
     <script src="{{asset('asset/js/adminlte.min.js')}}"></script>

@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Siswa;
 use App\Models\Kelas;
 use App\Models\Mapel;
+use App\Models\User;
+use Str;
 use Illuminate\Http\Request;
-use Validator;
+
 
 class SiswaController extends Controller
 {
@@ -68,21 +70,17 @@ class SiswaController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(),[
-            'nama' => 'required',
-            'jenis_kelamin' => 'required',
-            'alamat' => 'required',
-            'mapel_id' => 'required',
-            'kelas_id' => 'required'
-        ]);
+        
+       $user = new User;
+       $user->role ='siswa';
+       $user->name = $request->nama;
+       $user->email = $request->email;
+       $user->password = bcrypt('rahasia');
+       $user->remember_token = Str::random(20);
+       $user->save();
 
-       $siswa = Siswa::create([
-        'nama' => $request->nama,
-        'jenis_kelamin' => $request->jenis_kelamin,
-        'alamat' => $request->alamat,
-        'mapel_id' => $request->mapel_id,
-        'kelas_id' => $request->mapel_id
-       ]);
+       $request->request->add(['user_id' => $user->id]);
+       $siswa = Siswa::create($request->all());
 
        return response()->json([
         'success' => true,
