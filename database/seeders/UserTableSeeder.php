@@ -21,6 +21,8 @@ class UserTableSeeder extends Seeder
             'email' => 'adminsia@gmail.com',
             'password' => bcrypt('password'),
             'remember_token' => Str::random(20)
+            
+            
         ]);
     }
 }

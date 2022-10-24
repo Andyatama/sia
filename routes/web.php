@@ -44,6 +44,7 @@ Route::group(['middleware'=>['auth', 'checkRole:admin']], function(){
     Route::resource('/kelas', KelasController::class);
     
     Route::get('/siswa/data', [SiswaController::class, 'data'])->name('siswa.data');
+    Route::get('/siswa/profile/{id}', [SiswaController::class, 'profile'])->name('siswa.profile');
     Route::resource('/siswa', SiswaController::class);
     
     Route::get('/mapel/data', [MapelController::class, 'data'])->name('mapel.data');

@@ -31,6 +31,11 @@ class SiswaController extends Controller
         return datatables()
         ->of($siswa)
         ->addIndexColumn()
+        ->editColumn('nama', function($siswa){
+            return '
+                <a href="/siswa/profile/'.$siswa->id.'">'.$siswa->nama.'</a>
+            ';
+        })
         ->addColumn('mapel_id', function($siswa){
             return !empty($siswa->mapel->nama) ? $siswa->mapel->nama : 'BELUM DI ISI';
         })
@@ -46,7 +51,7 @@ class SiswaController extends Controller
             </div>
             ';
         })
-        ->rawColumns(['aksi', 'mapel_id', 'kelas_id'])
+        ->rawColumns(['aksi', 'mapel_id', 'kelas_id', 'nama'])
         ->make(true);
     }
 
@@ -144,5 +149,10 @@ class SiswaController extends Controller
         $siswa->delete();
 
         return response()->json(null, 204);
+    }
+
+    public function profile($id){
+        $siswa = Siswa::find($id);
+        return view('siswa.profile');
     }
 }
